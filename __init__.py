@@ -11,6 +11,10 @@ DIR = os.path.dirname(os.path.realpath(__file__))
 # server: `FILE_DEPOSITORY_PASSWORD=hunter2 python3 __init__.py`
 # client: `curl -v -X POST -H "Authorization: hunter2" --data-binary @__init__.py localhost:8000/asdf`
 
+# docker
+# build: `docker build -t file-depository .`
+# run: `docker run -d -P -e FILE_DEPOSITORY_PASSWORD=hunter2 file-depository`
+
 class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
     def do_POST(self):
         if PASSWORD and self.headers['Authorization'] != PASSWORD:
